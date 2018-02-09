@@ -49,7 +49,7 @@ print(traintarget.shape)
 print(testtarget.shape)
 
 
-knearestn = neighbors.KNeighborsClassifier(n_neighbors=5)
+knearestn = neighbors.KNeighborsClassifier(n_neighbors=7)
 knearestn.fit(traindata,traintarget.values.ravel())
 print("\nK Nearest Neighbors: ")
 #print(knearestn.predict([[0,3,2,1,2,700]]))
@@ -62,21 +62,23 @@ print("\nLogistic Regression: ")
 #print(logreg.predict([[0,3,2,1,2,700]]))
 print("Logistic Regression Score: ")
 print(logreg.score(testdata, testtarget.values.ravel()))
+
 """
 lreg = linear_model.LinearRegression(normalize=True)
 lreg.fit(traindata,traintarget.values.ravel())
 print("\nLinear Regression: ")
-print(lreg.predict([[0,3,2,1,2,700]]))
+#print(lreg.predict([[0,3,2,1,2,700]]))
 print("Linear Regression Score: ")
 print(lreg.score(testdata, testtarget.values.ravel()))
 
 ridge = linear_model.Ridge(normalize=True)
 ridge.fit(traindata,traintarget.values.ravel())
 print("\nRidge Regression: ")
-print(ridge.predict([[0,3,2,1,2,700]]))
+#print(ridge.predict([[0,3,2,1,2,700]]))
 print("Ridge Regression Score: ")
 print(ridge.score(testdata, testtarget.values.ravel()))
 """
+
 treemodelE = tree.DecisionTreeClassifier(criterion='entropy')
 treemodelE.fit(traindata,traintarget.values.ravel())
 print("\nDecisionTree Classifier (entropy): ")
@@ -98,7 +100,7 @@ print("\nRandom Forest Classifier: ")
 print("Random Forest Score: ")
 print(randomforest.score(testdata, testtarget.values.ravel()))
 
-gboost = GradientBoostingClassifier(n_estimators=100, learning_rate=1.0, max_depth=1)
+gboost = GradientBoostingClassifier(n_estimators=100, learning_rate=0.5, max_depth=1)
 gboost.fit(traindata,traintarget.values.ravel())
 print("\nGradientBoostingClassifier: ")
 #print(gboost.predict([[0,3,2,1,2,700]]))
@@ -124,7 +126,7 @@ from sklearn.cluster import KMeans
 k_means = KMeans(n_clusters=3, random_state=0)
 k_means.fit(traindata,traintarget.values.ravel())
 print("\nKMeans: ")
-print(k_means.predict([[0,3,2,1,2,700]]))
+#print(k_means.predict([[0,3,2,1,2,700]]))
 print("KMeans Score: ")
 print(k_means.score(testdata, testtarget.values.ravel()))
 """
